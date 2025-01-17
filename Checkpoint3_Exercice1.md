@@ -1,26 +1,38 @@
 ### Partie 1 : Gestion des utilisateurs
 
 **Q.1.1.1** Créer l'utilisateur **Lionel Lemarchand** avec les même attribut de société que **Kelly Rhameur**.
-![1](Exercice%201/Capture d'écran 2025-01-17 092340.png)
 
-![[Exercice 1/Capture d'écran 2025-01-17 092356.png]]
+![1](Exercice%201/092340.png)
 
-![[Exercice 1/Capture d'écran 2025-01-17 092405.png]]
+![2](Exercice%201/092356.png)
 
-![[Exercice 1/Capture d'écran 2025-01-17 092412.png]]
+![3](Exercice%201/092405.png)
+
+![4](Exercice%201/092412.png)
+
 **Q.1.1.2** Créer une OU **DeactivatedUsers** et déplace le compte désactivé de **Kelly Rhameur** dedans.
-![[Exercice 1/Pasted image 20250117092921.png]]
+
+![5](Exercice%201/092921.png)
+
 **Q.1.1.3** Modifier le groupe de l'OU dans laquelle était **Kelly Rhameur** en conséquence.
-![[Exercice 1/Pasted image 20250117093138.png]]
+
+![6](Exercice%201/093138.png)
 
 **Q.1.1.4** Créer le dossier Individuel du nouvel utilisateur et archive celui de **Kelly Rhameur** en le suffixant par **-ARCHIVE**.
-![[Exercice 1/Pasted image 20250117093331.png]]
-### [](https://odyssey.wildcodeschool.com/quests/2934/pages/12385#partie-2--restriction-utilisateurs)Partie 2 : Restriction utilisateurs
+
+![7](Exercice%201/093331.png)
+
+___
+### Partie 2 : Restriction utilisateurs
 
 **Q.1.2.1** Faire en sorte que l'utilisateur **Gabriel Ghul** ne puisse se connecter que du lundi au vendredi, de 7h à 17h.
-![[Exercice 1/Pasted image 20250117093544.png]]
+
+![8](Exercice%201/093544.png)
+
 **Q.1.2.2** De même, bloquer sa connexion au seul ordinateur **CLIENT01**.
-![[Exercice 1/Pasted image 20250117093639.png]]
+
+![9](Exercice%201/093639.png)
+
 **Q.1.2.3** Mettre en place une stratégie de mot de passe pour durcir les comptes des utilisateurs de l'OU **LabUsers**.
 On va créer une GPO pour renforcer la stratégie de mots de passe du domaine : 
 - Création de la GPO :
