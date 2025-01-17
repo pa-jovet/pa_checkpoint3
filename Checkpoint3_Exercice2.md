@@ -1,7 +1,9 @@
 ### Partie 1 : Gestion des utilisateurs
 
 **Q.2.1.1** Sur le serveur, créer un compte pour ton usage personnel.
-![[Exercice 2/Pasted image 20250117101922.png]]
+
+![11](Exercice%202/101922.png)
+
 **Q.2.1.2** Quelles préconisations proposes-tu concernant ce compte ?
 - S'il s'agit d'un compte utilisateur classique : 
 	- Mot de passe fort ;
@@ -10,7 +12,9 @@
 - S'il s'agit d'un compte administrateur :
 	- Mot de passe très fort, différent du compte utilisateur classique et à changer régulièrement ;
 	- Appartenance au groupe `sudo` ;
-### [](https://odyssey.wildcodeschool.com/quests/2934/pages/12385#partie-2--configuration-de-ssh)Partie 2 : Configuration de SSH
+
+___
+### Partie 2 : Configuration de SSH
 
 **Q.2.2.1** Désactiver complètement l'accès à distance de l'utilisateur root
 Dans `/etc/ssh/sshd_config`, modifier les lignes ainsi :
@@ -31,8 +35,8 @@ Dans `/etc/ssh/sshd_config`, modifier les lignes ainsi :
 	PasswordAuthentication no
 ```
 
-
-### [](https://odyssey.wildcodeschool.com/quests/2934/pages/12385#partie-3--analyse-du-stockage)Partie 3 : Analyse du stockage
+___
+### Partie 3 : Analyse du stockage
 
 **Q.2.3.1** Quels sont les systèmes de fichiers actuellement montés ?
 Avec une commande `df -h`, on voit que les systèmes de fichiers `/dev/mapper/cp3--bg-root` et `/dev/md0p1` sont actuellement montés ainsi que plusieurs systèmes temporaires ;
@@ -69,7 +73,9 @@ mount /dev/cp3-vg/save /var/lib/bareos/storage/SAVE
 
 **Q.2.3.5** Combien d'espace disponible reste-t-il dans le groupe de volume ?
 Avec une commande `vgdisplay`, on note que l'espace disponible pour le groupe de volume `cp3-vg` est `<1.79 Gb`.
-### [](https://odyssey.wildcodeschool.com/quests/2934/pages/12385#partie-4--sauvegardes)Partie 4 : Sauvegardes
+
+___
+### Partie 4 : Sauvegardes
 
 Le logiciel bareos est installé sur le serveur.  
 Les composants `bareos-dir`, `bareos-sd` et `bareos-fd` sont installés avec une configuration par défaut.
@@ -79,10 +85,11 @@ Les composants `bareos-dir`, `bareos-sd` et `bareos-fd` sont installés ave
 - Le composant bareos-sd est le Bareos Storage Daemon. Il gère les sauvegardes de fichiers.
 - Le composant bareos-fd est le Bareos File Daemon. Il s'installe sur chaque machine où se situent des fichiers que l'on souhaite sauvegarder et permet de remonter ceux-ci vers le Storage Daemon.
 
-### [](https://odyssey.wildcodeschool.com/quests/2934/pages/12385#partie-5--filtrage-et-analyse-r%C3%A9seau)Partie 5 : Filtrage et analyse réseau
+___
+### Partie 5 : Filtrage et analyse réseau
 
 **Q.2.5.1** Quelles sont actuellement les règles appliquées sur Netfilter ?
-Dans /root/nftables/config.nft, on trouve la règle inet_filter_table.
+Dans /root/nftables/config.nft, on trouve la règle `inet_filter_table`
 
 **Q.2.5.2** Quels types de communications sont autorisées ?
 Les connexions authentifiées, les entrées sur l'interface locale, le protocole TCP à destination du port SSH (par défaut le port 22), les protocoles ICMP (pings) IPv4 et IPv6.
@@ -97,16 +104,20 @@ tcp dport 9101 accept
 tcp dport 9103 accept
 ```
 
-
-### [](https://odyssey.wildcodeschool.com/quests/2934/pages/12385#partie-6---analyse-de-logs)Partie 6 : Analyse de logs
+___
+### Partie 6 : Analyse de logs
 
 **Q.2.6.1** Lister les 10 derniers échecs de connexion ayant eu lieu sur le serveur en indiquant pour chacun :
 
-- La date et l'heure de la tentative
-- L'adresse IP de la machine ayant fait la tentative
+Avec la commande 
+
+```
+journalctl _SYSTEMD_UNIT=ssh.service | egrep "Failed|Failure"
+```
+on trouve les résultats suivant :
 
 | Date et heure de la tentative | Adresse IP de la machine source |
-|===================|======================|
+|-------------------------------|---------------------------------|
 |20/12/2024 10:24:10| 10.0.0.199 |
 | 03/01/2025 11:06:30 | 10.0.0.199 |
 | 03/01/2025 11:06:45 | 10.0.0.199 |
