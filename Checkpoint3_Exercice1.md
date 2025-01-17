@@ -1,7 +1,7 @@
 ### Partie 1 : Gestion des utilisateurs
 
 **Q.1.1.1** Créer l'utilisateur **Lionel Lemarchand** avec les même attribut de société que **Kelly Rhameur**.
-![[Exercice 1/Capture d'écran 2025-01-17 092340.png]]
+![1](Exercice%201/Capture d'écran 2025-01-17 092340.png)
 
 ![[Exercice 1/Capture d'écran 2025-01-17 092356.png]]
 
